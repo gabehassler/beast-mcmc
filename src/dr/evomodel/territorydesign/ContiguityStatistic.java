@@ -105,7 +105,7 @@ public class ContiguityStatistic extends Statistic.Abstract {
 
         @Override
         public String getParserName() {
-            return "contiguityModel";
+            return "contiguityStatistic";
         }
     };
 }
