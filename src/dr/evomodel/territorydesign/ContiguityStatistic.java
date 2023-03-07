@@ -37,9 +37,9 @@ public class ContiguityStatistic extends Statistic.Abstract {
 
         if (treeModel.getNodeHeight(node) < threshold.getParameterValue(0)) {
             for (int i0 = 0; i0 < a0.descendants.size(); i0++) {
-                int taxon0 = descendants.get(i0);
+                int taxon0 = a0.descendants.get(i0);
                 for (int i1 = 0; i1 < a1.descendants.size(); i1++) {
-                    int taxon1 = descendants.get(i1);
+                    int taxon1 = a1.descendants.get(i1);
                     if (adjacencyMatrix.areAdjacent(taxon0, taxon1)) {
                         return new AdjacencyAccumulator(n, descendants);
                     }
