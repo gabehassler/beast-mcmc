@@ -17,12 +17,14 @@ public class TemperOperator extends SimpleMCMCOperator implements GibbsOperator 
     public static final String TEMPER_OPERATOR = "temperOperator";
     private static final String TARGET_PARAMETER = "target";
     private static final String RATE = "rate";
+    private static final String TEMPER_PERIOD = "temperPeriod";
 
     private final Parameter parameter;
     private final Parameter target;
     private final double rate;
     private double currentCount;
     private final double[] startValues;
+    private static final double THRESHOLD = 2.3;
 
     public TemperOperator(Parameter parameter,
                           Parameter target,
@@ -63,7 +65,7 @@ public class TemperOperator extends SimpleMCMCOperator implements GibbsOperator 
             double targetValue = target.getParameterValue(i % target.getDimension());
 
             // if less than (approx) 90% of the way there, keep going: exp(-2.3) ~ 0.1
-            if (objective < 2.3) {
+            if (objective < THRESHOLD) {
                 double startValue = startValues[i];
                 double x = startValue + (startValue - targetValue) * (Math.exp(-objective) - 1);
                 parameter.setParameterValue(i, x);
@@ -95,14 +97,20 @@ public class TemperOperator extends SimpleMCMCOperator implements GibbsOperator 
 
             XMLObject cxo = xo.getChild(TARGET_PARAMETER);
             Parameter targetParameter = (cxo.getChild(0) instanceof Parameter) ?
-                (Parameter) cxo.getChild(Parameter.class) :
-                new Parameter.Default(cxo.getDoubleChild(0));
+                    (Parameter) cxo.getChild(Parameter.class) :
+                    new Parameter.Default(cxo.getDoubleChild(0));
 
             if (targetParameter.getDimension() > hotParameter.getDimension()) {
                 throw new XMLParseException("Target parameter cannot have more dimensions than the tempered parameter.");
             }
 
-            double rate = xo.getAttribute(RATE, 0.0);
+            final double rate;
+            if (xo.hasAttribute(RATE)) {
+                rate = xo.getAttribute(RATE, 0.0);
+            } else {
+                double period = xo.getDoubleAttribute(TEMPER_PERIOD);
+                rate = Math.log(period) - Math.log(THRESHOLD);
+            }
             if (rate < 0.0) {
                 throw new XMLParseException("Rate cannot be negative");
             }
@@ -136,7 +144,10 @@ public class TemperOperator extends SimpleMCMCOperator implements GibbsOperator 
                                 new ElementRule(Parameter.class),
                                 new ElementRule(Double.class)
                         )}),
-                AttributeRule.newDoubleRule(RATE),
+                new XORRule(
+                        AttributeRule.newDoubleRule(RATE),
+                        AttributeRule.newDoubleRule(TEMPER_PERIOD)
+                )
         };
     };
 }
