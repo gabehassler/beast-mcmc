@@ -10,10 +10,12 @@ public class TaxaAdjacencyMatrix {
 
     private final TreeModel treeModel;
     private final int[][] adjacency;
+    private final double[][] sharedBorder;
 
-    public TaxaAdjacencyMatrix(TreeModel treeModel, int[][] adjacency) {
+    public TaxaAdjacencyMatrix(TreeModel treeModel, int[][] adjacency, double[][] sharedBorder) {
         this.treeModel = treeModel;
         this.adjacency = adjacency;
+        this.sharedBorder = sharedBorder;
     }
 
     public boolean areAdjacent(int i, int j) {
@@ -25,6 +27,7 @@ public class TaxaAdjacencyMatrix {
     }
 
     private static final String ADJACENCY = "adjacency";
+    private static final String SHARED_BORDER = "sharedBorder";
 
 
     public static AbstractXMLObjectParser PARSER = new AbstractXMLObjectParser() {
@@ -33,14 +36,18 @@ public class TaxaAdjacencyMatrix {
             TreeModel treeModel = (TreeModel) xo.getChild(TreeModel.class);
             int nTaxa = treeModel.getTaxonCount();
             int[][] adjacencyMatrix = new int[nTaxa][nTaxa];
+            double[][] sharedBorder = new double[nTaxa][nTaxa];
             for (XMLObject cxo : xo.getAllChildren(ADJACENCY)) {
                 List<Taxon> taxa = cxo.getAllChildren(Taxon.class);
                 int i = treeModel.getTaxonIndex(taxa.get(0));
                 int j = treeModel.getTaxonIndex(taxa.get(1));
                 adjacencyMatrix[i][j] = 1;
                 adjacencyMatrix[j][i] = 1;
+                double sb = cxo.getAttribute(SHARED_BORDER, 0.0);
+                sharedBorder[i][j] = sb;
+                sharedBorder[j][i] = sb;
             }
-            return new TaxaAdjacencyMatrix(treeModel, adjacencyMatrix);
+            return new TaxaAdjacencyMatrix(treeModel, adjacencyMatrix, sharedBorder);
         }
 
         @Override
@@ -48,7 +55,8 @@ public class TaxaAdjacencyMatrix {
             return new XMLSyntaxRule[]{
                     new ElementRule(TreeModel.class),
                     new ElementRule(ADJACENCY, new XMLSyntaxRule[]{
-                            new ElementRule(Taxon.class, 2, 2)
+                            new ElementRule(Taxon.class, 2, 2),
+                            AttributeRule.newDoubleRule(SHARED_BORDER, true)
                     }, 1, Integer.MAX_VALUE)
 
             };
