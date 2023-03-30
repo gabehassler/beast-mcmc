@@ -17,21 +17,22 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
     //    private double[] perimeters;
     private double[] groupSizes;
     //    private final Distribution groupSizeDistribution;
-    private final Distribution perimeterDistribution;
+//    private final Distribution perimeterDistribution;
     private final double discontiguityPenalty;
-    private final boolean useThreshold = false;
+    private final boolean useThreshold;
 
     public ContiguityStatistic(TaxaAdjacencyMatrix adjacencyMatrix,
                                Parameter threshold,
 //                               Distribution groupSizeDistribution,
-                               Distribution perimeterDistribution,
+//                               Distribution perimeterDistribution,
                                double discontiguityPenalty) {
         super(CONTIGUITY_LIKELIHOOD);
         this.adjacencyMatrix = adjacencyMatrix;
         this.threshold = threshold;
 //        this.groupSizeDistribution = groupSizeDistribution;
-        this.perimeterDistribution = perimeterDistribution;
+//        this.perimeterDistribution = perimeterDistribution;
         this.discontiguityPenalty = discontiguityPenalty;
+        this.useThreshold = threshold != null;
     }
 
     private void update() {
@@ -166,10 +167,14 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
         @Override
         public Object parseXMLObject(XMLObject xo) throws XMLParseException {
             TaxaAdjacencyMatrix adjacencyMatrix = (TaxaAdjacencyMatrix) xo.getChild(TaxaAdjacencyMatrix.class);
-            Parameter threshold = (Parameter) xo.getChild(THRESHOLD).getChild(Parameter.class);
-            Distribution ratioDistribution = (Distribution) xo.getChild(RATIO_DISTRIBUTION).getChild(Distribution.class);
+
+            Parameter threshold = null;
+            if (xo.hasChildNamed(THRESHOLD)) {
+                threshold = (Parameter) xo.getChild(THRESHOLD).getChild(Parameter.class);
+            }
+//            Distribution ratioDistribution = (Distribution) xo.getChild(RATIO_DISTRIBUTION).getChild(Distribution.class);
             double penalty = xo.getDoubleAttribute(PENALTY);
-            return new ContiguityStatistic(adjacencyMatrix, threshold, ratioDistribution, penalty);
+            return new ContiguityStatistic(adjacencyMatrix, threshold, penalty);
         }
 
         @Override
@@ -178,10 +183,10 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
                     new ElementRule(TaxaAdjacencyMatrix.class),
                     new ElementRule(THRESHOLD, new XMLSyntaxRule[]{
                             new ElementRule(Parameter.class)
-                    }),
-                    new ElementRule(RATIO_DISTRIBUTION, new XMLSyntaxRule[]{
-                            new ElementRule(Distribution.class)
-                    }),
+                    }, true),
+//                    new ElementRule(RATIO_DISTRIBUTION, new XMLSyntaxRule[]{
+//                            new ElementRule(Distribution.class)
+//                    }),
                     AttributeRule.newDoubleRule(PENALTY)
             };
         }
