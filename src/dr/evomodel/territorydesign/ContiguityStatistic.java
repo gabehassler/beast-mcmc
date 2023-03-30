@@ -13,12 +13,13 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
     private final TaxaAdjacencyMatrix adjacencyMatrix;
     private final Parameter threshold;
     private int nDiscongiguities = 0;
-    private double[] areas;
-    private double[] perimeters;
+    //    private double[] areas;
+    //    private double[] perimeters;
     private double[] groupSizes;
     //    private final Distribution groupSizeDistribution;
     private final Distribution perimeterDistribution;
     private final double discontiguityPenalty;
+    private final boolean useThreshold = false;
 
     public ContiguityStatistic(TaxaAdjacencyMatrix adjacencyMatrix,
                                Parameter threshold,
@@ -37,8 +38,8 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
         TreeModel treeModel = adjacencyMatrix.getTreeModel();
         ArrayList<AdjacencyAccumulator> accumulators = countDiscontiguities(treeModel, treeModel.getRoot());
         int n = accumulators.size();
-        this.perimeters = new double[n];
-        this.areas = new double[n];
+//        this.perimeters = new double[n];
+//        this.areas = new double[n];
         this.groupSizes = new double[n];
         this.nDiscongiguities = 0;
 
@@ -48,13 +49,13 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
             int ni = taxa.size();
             groupSizes[i] = ni;
             this.nDiscongiguities += accumulator.nDiscongiguities;
-            for (int j = 0; j < ni; j++) {
-                areas[i] += adjacencyMatrix.getArea(j);
-                perimeters[i] += adjacencyMatrix.getPerimeter(j);
-                for (int k = (j + 1); k < ni; k++) {
-                    perimeters[i] -= 2 * adjacencyMatrix.getSharedPerimeter(j, k);
-                }
-            }
+//            for (int j = 0; j < ni; j++) {
+//                areas[i] += adjacencyMatrix.getArea(j);
+//                perimeters[i] += adjacencyMatrix.getPerimeter(j);
+//                for (int k = (j + 1); k < ni; k++) {
+//                    perimeters[i] -= 2 * adjacencyMatrix.getSharedPerimeter(j, k);
+//                }
+//            }
         }
 
     }
@@ -71,7 +72,7 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
         ArrayList<AdjacencyAccumulator> as0 = countDiscontiguities(treeModel, treeModel.getChild(node, 0));
         ArrayList<AdjacencyAccumulator> as1 = countDiscontiguities(treeModel, treeModel.getChild(node, 1));
 
-        if (treeModel.getNodeHeight(node) > threshold.getParameterValue(0)) {
+        if (useThreshold && treeModel.getNodeHeight(node) > threshold.getParameterValue(0)) {
             accumulators.addAll(as0);
             accumulators.addAll(as1);
             return accumulators;
@@ -132,10 +133,10 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
     public double getLogLikelihood() {
         update();
         double ll = -discontiguityPenalty * nDiscongiguities;
-        for (int i = 0; i < areas.length; i++) {
-            double ratio = perimeters[i] * perimeters[i] / areas[i];
-            ll += perimeterDistribution.logPdf(ratio) * groupSizes[i];
-        }
+//        for (int i = 0; i < areas.length; i++) {
+//            double ratio = perimeters[i] * perimeters[i] / areas[i];
+//            ll += perimeterDistribution.logPdf(ratio) * groupSizes[i];
+//        }
         return ll;
     }
 
