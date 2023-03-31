@@ -35,13 +35,17 @@ public class TreeHeightSumStatistic extends Statistic.Abstract {
 
     private void updateGroupCounts() {
         ArrayList<Accumulator> accumulators = updateGroupCounts(treeModel.getRoot());
-        int offset = 0;
+//        int offset = 0;
         for (int i = 0; i < accumulators.size(); i++) {
             Accumulator accumulator = accumulators.get(i);
-            for (int j = offset; j < accumulator.nChildren + offset; j++) {
-                groupCounts[j] = accumulator.sum;
-            }
-            offset += accumulator.nChildren;
+            groupCounts[i] = accumulator.sum;
+//            for (int j = offset; j < accumulator.nChildren + offset; j++) {
+//                groupCounts[j] = accumulator.sum;
+//            }
+//            offset += accumulator.nChildren;
+        }
+        for (int i = accumulators.size(); i < groupCounts.length; i++) {
+            groupCounts[i] = 0;
         }
     }
 

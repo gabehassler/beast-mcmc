@@ -74,7 +74,7 @@ public class GroupSizeDistributionModel extends AbstractModel implements Paramet
     @Override
     public double logPdf(double x) {
         double logC = Math.log(normalizingConstant());
-        if (x <= 0) {
+        if (x < 0) {
             return Double.NEGATIVE_INFINITY;
         } else if (x < plateauStart) {
             return Math.log(alpha) * (Math.log(x) - Math.log(plateauStart)) - logC;
