@@ -58,7 +58,6 @@ public class TaxonGroupsProvider extends AbstractModel {
     }
 
     public ArrayList<Accumulator> getGroups() {
-        System.out.println("Need to update: " + needToUpdate);
         if (needToUpdate) {
             updateAccumulators();
             needToUpdate = false;
