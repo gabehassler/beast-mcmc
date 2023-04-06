@@ -4,7 +4,6 @@ import dr.inference.model.Model;
 import dr.inference.model.ModelListener;
 import dr.inference.model.Statistic;
 import dr.xml.*;
-;
 
 import java.util.ArrayList;
 

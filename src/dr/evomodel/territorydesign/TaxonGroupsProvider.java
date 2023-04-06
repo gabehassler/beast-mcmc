@@ -13,36 +13,43 @@ public class TaxonGroupsProvider extends AbstractModel {
     private final Parameter taxonValues;
     private ArrayList<Accumulator> accumulators;
     private ArrayList<Accumulator> oldAccumulators;
-    private boolean needsUpdate = true;
+    private boolean needToUpdate = true;
+    private boolean oldNeedToUpdate = true;
 
     public TaxonGroupsProvider(TreeModel treeModel, Parameter taxonValues, Parameter minimumSize) {
         super(TAXON_GROUPS_PROVIDER);
         this.treeModel = treeModel;
         this.taxonValues = taxonValues;
         this.minimumSize = minimumSize;
-        addModel(treeModel);
+        treeModel.addModel(this);
+        treeModel.addModelListener(this);
         addVariable(taxonValues);
         addVariable(minimumSize);
     }
 
     @Override
     protected void handleModelChangedEvent(Model model, Object object, int index) {
-        needsUpdate = true;
+        needToUpdate = true;
+        fireModelChanged(this);
     }
 
     @Override
     protected void handleVariableChangedEvent(Variable variable, int index, Parameter.ChangeType type) {
-        needsUpdate = true;
+        needToUpdate = true;
+        fireModelChanged(this);
     }
 
     @Override
     protected void storeState() {
         oldAccumulators = accumulators;
+        oldNeedToUpdate = needToUpdate;
     }
 
     @Override
     protected void restoreState() {
         accumulators = oldAccumulators;
+        needToUpdate = oldNeedToUpdate;
+        fireModelChanged(this);
     }
 
     @Override
@@ -51,9 +58,10 @@ public class TaxonGroupsProvider extends AbstractModel {
     }
 
     public ArrayList<Accumulator> getGroups() {
-        if (needsUpdate) {
+        System.out.println("Need to update: " + needToUpdate);
+        if (needToUpdate) {
             updateAccumulators();
-            needsUpdate = false;
+            needToUpdate = false;
         }
         return accumulators;
     }
@@ -82,9 +90,9 @@ public class TaxonGroupsProvider extends AbstractModel {
     }
 
 
-    private Accumulator mergeAccumulators(ArrayList<Accumulator> accumulators) {
-        if (accumulators.size() != 2) {
-            throw new RuntimeException("Expected 2 accumulators, got " + accumulators.size());
+    private Accumulator mergeAccumulators(ArrayList<Accumulator> accumulators, NodeRef parent) {
+        if (accumulators.size() < 2) {
+            throw new RuntimeException("Expected at least 2 accumulators, got " + accumulators.size());
         }
 
         int nChildren = 0;
@@ -94,11 +102,6 @@ public class TaxonGroupsProvider extends AbstractModel {
             sum += a.sum;
         }
 
-        NodeRef parent = treeModel.getNode(accumulators.get(0).parentNode);
-        NodeRef parent2 = treeModel.getNode(accumulators.get(1).parentNode);
-        if (parent != parent2) {
-            throw new RuntimeException("Expected parent nodes to be the same");
-        }
 
         ArrayList<Integer> descendants = new ArrayList<>();
         for (Accumulator a : accumulators) {
@@ -113,9 +116,11 @@ public class TaxonGroupsProvider extends AbstractModel {
         ArrayList<Accumulator> accumulators = new ArrayList<>();
         if (treeModel.getChildCount(node) == 0) {
             int nodeNum = node.getNumber();
+            ArrayList<Integer> descendants = new ArrayList<>();
+            descendants.add(nodeNum);
             accumulators.add(new Accumulator(1,
                     taxonValues.getParameterValue(nodeNum),
-                    new ArrayList<>(nodeNum),
+                    descendants,
                     nodeNum));
             return accumulators;
         }
@@ -135,7 +140,7 @@ public class TaxonGroupsProvider extends AbstractModel {
             merge = true;
         }
         if (merge) {
-            Accumulator merged = mergeAccumulators(accumulators);
+            Accumulator merged = mergeAccumulators(accumulators, node);
             accumulators.clear();
             accumulators.add(merged);
         }
