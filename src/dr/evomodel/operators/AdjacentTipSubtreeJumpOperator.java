@@ -30,6 +30,11 @@ public class AdjacentTipSubtreeJumpOperator extends SubtreeJumpOperator {
     }
 
     @Override
+    public String getOperatorName() {
+        return "adjacentTipSubtreeJumpOperator";
+    }
+
+    @Override
     protected NodeRef selectTargetNode() {
 
         final NodeRef root = tree.getRoot();
