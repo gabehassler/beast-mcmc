@@ -44,7 +44,7 @@ public class SubtreeJumpOperatorParser extends AbstractXMLObjectParser {
     public static final String TARGET_ACCEPTANCE = "targetAcceptance";
     public static final String UNIFORM = "uniform";
 
-    
+
     public String getParserName() {
         return SUBTREE_JUMP;
     }
@@ -74,10 +74,14 @@ public class SubtreeJumpOperatorParser extends AbstractXMLObjectParser {
             throw new XMLParseException("Target acceptance probability has to lie in (0, 1)");
         }
 
-        SubtreeJumpOperator operator = new SubtreeJumpOperator(treeModel, weight, size, targetAcceptance, uniform, mode);
+//        SubtreeJumpOperator operator = new SubtreeJumpOperator(treeModel, weight, size, targetAcceptance, uniform, mode);
 //        operator.setTargetAcceptanceProbability(targetAcceptance);
 
-        return operator;
+        return factory(treeModel, weight, size, targetAcceptance, uniform, mode);
+    }
+
+    protected SubtreeJumpOperator factory(TreeModel treeModel, double weight, double size, double targetAcceptance, boolean uniform, AdaptationMode mode) {
+        return new SubtreeJumpOperator(treeModel, weight, size, targetAcceptance, uniform, mode);
     }
 
     public String getParserDescription() {

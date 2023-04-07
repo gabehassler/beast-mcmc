@@ -51,7 +51,7 @@ public class SubtreeJumpOperator extends AbstractTreeOperator {
     private double accP = 0.234;
     private boolean uniform = false;
 
-    private final TreeModel tree;
+    protected final TreeModel tree;
     private final AdaptationMode mode;
 
 
@@ -79,7 +79,6 @@ public class SubtreeJumpOperator extends AbstractTreeOperator {
     public double doOperation() {
         double logq;
 
-        final NodeRef root = tree.getRoot();
 
 //        double  maxHeight = tree.getNodeHeight(root);
 
@@ -89,11 +88,7 @@ public class SubtreeJumpOperator extends AbstractTreeOperator {
         NodeRef PiP = null;
         List<NodeRef> destinations = null;
 
-        do {
-            // 1. choose a random node avoiding root or child of root
-            i = tree.getNode(MathUtils.nextInt(tree.getNodeCount()));
-
-        } while (root == i || tree.getParent(i) == root);
+        i = selectTargetNode();
 
         iP = tree.getParent(i);
         CiP = getOtherChild(tree, iP, i);
@@ -103,7 +98,7 @@ public class SubtreeJumpOperator extends AbstractTreeOperator {
         double parentHeight = tree.getNodeHeight(iP);
 
         // get a list of all edges that intersect this height
-        destinations = getIntersectingEdges(tree, parentHeight);
+        destinations = getIntersectingEdges(tree, parentHeight, i);
 
         if (destinations.size() == 0) {
             // if there are no destinations available then reject the move
@@ -153,7 +148,7 @@ public class SubtreeJumpOperator extends AbstractTreeOperator {
             logq = 0.0;
         } else {
 
-            final List<NodeRef> reverseDestinations = getIntersectingEdges(tree, parentHeight);
+            final List<NodeRef> reverseDestinations = getIntersectingEdges(tree, parentHeight, i);
             double reverseProbability = getReverseProbability(tree, CiP, j, parentHeight, reverseDestinations, size);
 
             // hastings ratio = reverse Prob / forward Prob
@@ -163,13 +158,27 @@ public class SubtreeJumpOperator extends AbstractTreeOperator {
         return logq;
     }
 
+    protected NodeRef selectTargetNode() {
+
+        final NodeRef root = tree.getRoot();
+
+        NodeRef i;
+        do {
+            // 1. choose a random node avoiding root or child of root
+            i = tree.getNode(MathUtils.nextInt(tree.getNodeCount()));
+
+        } while (root == i || tree.getParent(i) == root);
+        return i;
+    }
+
+
     /**
      * Gets a list of edges that subtend the given height
      * @param tree
      * @param height
      * @return
      */
-    private List<NodeRef> getIntersectingEdges(Tree tree, double height) {
+    protected List<NodeRef> getIntersectingEdges(Tree tree, double height, NodeRef targetNode) {
 
         List<NodeRef> intersectingEdges = new ArrayList<NodeRef>();
 
