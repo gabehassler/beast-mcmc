@@ -65,6 +65,24 @@ public class TaxonGroupsProvider extends AbstractModel {
         return accumulators;
     }
 
+    public ArrayList<Accumulator> getAdjacentGroups(Accumulator group, TaxaAdjacencyMatrix adjacency) {
+        ArrayList<Accumulator> adjacentGroups = new ArrayList<>();
+        for (Accumulator g : getGroups()) {
+            if (g.parentNode == group.parentNode) {
+                continue;
+            }
+            for (int i = 0; i < group.descendants.size(); i++) {
+                for (int j = 0; j < g.descendants.size(); j++) {
+                    if (adjacency.areAdjacent(group.descendants.get(i), g.descendants.get(j))) {
+                        adjacentGroups.add(g);
+                        break;
+                    }
+                }
+            }
+        }
+        return adjacentGroups;
+    }
+
     public int getMaximumNumGroups() {
         return treeModel.getTaxonCount();
     }
