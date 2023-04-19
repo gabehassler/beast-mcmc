@@ -210,6 +210,9 @@ public class SubtreeJumpOperator extends AbstractTreeOperator {
 
         double[] weights = new double[intersectingEdges.size()];
         int originalIndex = getNormalizedProbabilities(tree, targetNode, height, originalNode, intersectingEdges, size, weights);
+        if (originalIndex == -1) {
+            return 0;
+        }
         return weights[originalIndex];
     }
 
