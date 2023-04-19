@@ -149,6 +149,10 @@ public class SubtreeJumpOperator extends AbstractTreeOperator {
         } else {
 
             final List<NodeRef> reverseDestinations = getIntersectingEdges(tree, parentHeight, i);
+            if (reverseDestinations.size() == 0) {
+                // if there are no destinations available then reject the move
+                return Double.NEGATIVE_INFINITY;
+            }
             double reverseProbability = getReverseProbability(tree, CiP, j, parentHeight, reverseDestinations, size);
 
             // hastings ratio = reverse Prob / forward Prob
