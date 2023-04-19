@@ -8,350 +8,442 @@
 <!--       http://beast.community/                                           -->
 <beast version="1.10.5">
 
-	<taxa id="taxa">
-  <taxon id="02013">
-    <attr name="Location">4.086914711510415 3.4120607394483624 -1.2274518365833758 0.05760704460319732 0.17041367522915984 1.0278128525173442 -0.008426105031512449 0.9046885422609587 0.011865331574986914 0.13206629926941943</attr>
-  </taxon>
-  <taxon id="02016">
-    <attr name="Location">9.946078892372753 4.3181672739705474 -0.3958716765039345 0.06259392309123529 0.42474447811909677 -0.5181194787744285 0.12621961414551294 1.7474710067393766 -0.008082182377164996 -0.03250069083583379</attr>
-  </taxon>
-  <taxon id="02020">
-    <attr name="Location">0.39969185651187356 -0.19570419468405503 3.724060590880125 0.17230524982807077 0.20532182464542575 -0.6627389549275298 0.11624585716943699 0.17660428300741393 0.01685221006302489 0.11211878531726749</attr>
-  </taxon>
-  <taxon id="02050">
-    <attr name="Location">3.4323256381217426 0.1318003288803254 -1.2918564190840343 -0.04213052515756222 -0.1686940619574226 3.122301817493295 -0.013412983519550425 -0.23730663149973824 -0.008082182377164996 -0.1621595315248212</attr>
-  </taxon>
-  <taxon id="02060">
-    <attr name="Location">2.505993163953164 1.4046149389589957 -0.2561231098179857 -0.05709116062167616 0.24022997406169155 0.469282461857091 0.03645580136082935 -0.17746408964328253 0.01685221006302489 0.03731560799669792</attr>
-  </taxon>
-  <taxon id="02068">
-    <attr name="Location">0.7986619834240963 -1.60400642840544 -1.9843093313164675 0.027685773674969466 -0.18864157590957448 -0.9220566363055047 -0.02338674049562638 -0.19242472510739644 0.001891574598910959 0.22681699054214105</attr>
-  </taxon>
-  <taxon id="02070">
-    <attr name="Location">2.9939441729801666 0.7765804899580262 -1.724943709933398 -0.007222375741296375 -0.11383839858900482 2.6535352396177254 -0.0183998620075884 -0.2722147809160041 -0.008082182377164996 -0.01255317688368185</attr>
-  </taxon>
-  <taxon id="02090">
-    <attr name="Location">0.03634715000146668 -2.3164786730425457 1.5753089496453698 0.14238397889984294 0.14547928278896993 -0.6427914409753779 0.0015476519445635079 -0.1325821832509407 0.02183908855106287 0.0024074585804320647</attr>
-  </taxon>
-  <taxon id="02100">
-    <attr name="Location">-3.713311359981722 -0.00284637247955574 -0.5465804037478854 -0.08202555306186604 -0.004127071852169317 -0.6926602258557577 -0.013412983519550425 -0.2023984820834724 -0.008082182377164996 0.3764233451832803</attr>
-  </taxon>
-  <taxon id="02105">
-    <attr name="Location">-4.028059146574868 0.5159524619962652 -1.563875476489478 0.07755455855534923 0.20033494615738778 0.5241381252255088 -0.02338674049562638 -0.17746408964328253 -0.008082182377164996 0.1021450283411916</attr>
-  </taxon>
-  <taxon id="02110">
-    <attr name="Location">-4.254331915462514 0.24402680538871022 1.4715745569080543 -0.037143646669524244 0.0806498624444763 -0.5181194787744285 0.03645580136082935 0.04195856383038854 -0.008082182377164996 0.20686947658998905</attr>
-  </taxon>
-  <taxon id="02122">
-    <attr name="Location">1.1989264164777875 0.3746081686261935 0.4810000468297537 -0.05709116062167616 -0.053995856732549086 -0.622843927023226 -0.0034392265434744704 -0.21237223905954833 0.026825967039100847 -0.06740884025209964</attr>
-  </taxon>
-  <taxon id="02130">
-    <attr name="Location">-5.792396676943614 1.4478206442581731 0.2666148222840121 -0.0471174036456002 0.010833563611944597 -0.31365746076487144 -0.013412983519550425 0.10678798417488222 0.0068784530869489355 0.06225000043688772</attr>
-  </taxon>
-  <taxon id="02150">
-    <attr name="Location">1.4453725311640566 2.0353174030106267 -0.031461053477113476 -0.06207803910971413 0.1853743106932738 -0.40840815203759295 -0.013412983519550425 0.8448460004045029 0.01685221006302489 0.012381215556508007</attr>
-  </taxon>
-  <taxon id="02164">
-    <attr name="Location">2.411520801885226 1.7077626492858133 -3.171345510208501 0.2620690626127544 -0.24848411776603022 1.9204641018761426 -0.008426105031512449 -0.18245096813132047 -0.0030953038891270183 0.02235497253258395</attr>
-  </taxon>
-  <taxon id="02170">
-    <attr name="Location">0.5185696214326009 -0.7664966151772246 0.6232254495398105 -0.01719613271737233 -0.004127071852169317 -0.7126077398079096 -0.008426105031512449 -0.2173591175475863 0.001891574598910959 0.01736809404454598</attr>
-  </taxon>
-  <taxon id="02195">
-    <attr name="Location">-4.807021281628256 1.1116806065586569 -0.5136749986132698 0.01771201669889351 0.12054489034878013 -0.6926602258557577 -0.013412983519550425 0.4309350858973507 0.001891574598910959 0.07721063590100169</attr>
-  </taxon>
-  <taxon id="02198">
-    <attr name="Location">-5.264717510515839 1.6967629102818156 -0.46077442369348387 -0.05210428213363818 -0.07394337068470103 0.9280752827565848 0.006534530432601483 -0.2173591175475863 -0.0030953038891270183 0.13206629926941943</attr>
-  </taxon>
-  <taxon id="02220">
-    <attr name="Location">-4.170949795279529 1.043745299795722 0.3064312406378755 -0.06207803910971413 0.0806498624444763 -0.45329005842993486 -0.013412983519550425 0.08684047022273028 0.001891574598910959 0.2567382614703689</attr>
-  </taxon>
-  <taxon id="02230">
-    <attr name="Location">-3.6860613323210494 -0.28772174642488957 0.3093103884426167 0.09750207250750115 -0.06396961370862506 -0.8023715525925932 -0.02338674049562638 -0.16250345417916856 0.001891574598910959 0.09217127136511566</attr>
-  </taxon>
-  <taxon id="02240">
-    <attr name="Location">-0.8960588579896287 -2.029261619441217 -1.6965584342648412 -0.04213052515756222 0.06568922698036234 -0.31365746076487144 -0.0183998620075884 -0.15252969720309262 -0.008082182377164996 -0.19706768094108704</attr>
-  </taxon>
-  <taxon id="02275">
-    <attr name="Location">-5.3257655456737405 1.123404547670687 -0.6322404451207535 -0.06706491759775211 -0.06895649219666306 0.02545027642171105 0.041442679848867334 -0.20738536057151036 -0.008082182377164996 0.03731560799669792</attr>
-  </taxon>
-  <taxon id="02282">
-    <attr name="Location">-2.252769929962182 -0.07202710335904507 -2.7669897220761643 0.20222652075629866 0.5145082909037803 0.21993853745519232 -0.008426105031512449 0.12673549812703416 -0.008082182377164996 0.3066070463507487</attr>
-  </taxon>
-  <taxon id="02290">
-    <attr name="Location">1.2999949052665931 -2.5279699285400588 -3.4127619366411786 -0.07703867457382807 -0.1387727910291947 2.4191519506799404 -0.02338674049562638 -0.2622410239399281 -0.008082182377164996 -0.007566298395643933</attr>
-  </taxon>
-  <taxon id="02180">
-    <attr name="Location">4.376493141872334 -2.1508483699885437 NA NA NA NA NA NA NA NA</attr>
-  </taxon>
-  <taxon id="02185">
-    <attr name="Location">1.9396237269907148 -4.822297285825967 NA NA NA NA NA NA NA NA</attr>
-  </taxon>
-  <taxon id="02188">
-    <attr name="Location">3.3159876442897227 -3.376627095156345 NA NA NA NA NA NA NA NA</attr>
-  </taxon>
-  <taxon id="02261">
-    <attr name="Location">-0.7482226536829804 -0.5020542907931196 NA NA NA NA NA NA NA NA</attr>
-  </taxon>
-  <taxon id="02270">
-    <attr name="Location">4.233219647761208 -0.6899655447709159 NA NA NA NA NA NA NA NA</attr>
-  </taxon>
-</taxa>
+    <taxa id="taxa">
+        <taxon id="02013">
+            <attr name="Location">4.086914711510415 3.4120607394483624 -1.2274518365833758 0.05760704460319732
+                0.17041367522915984 1.0278128525173442 -0.008426105031512449 0.9046885422609587 0.011865331574986914
+                0.13206629926941943
+            </attr>
+            <attr name="samples">4</attr>
+        </taxon>
+        <taxon id="02016">
+            <attr name="Location">9.946078892372753 4.3181672739705474 -0.3958716765039345 0.06259392309123529
+                0.42474447811909677 -0.5181194787744285 0.12621961414551294 1.7474710067393766 -0.008082182377164996
+                -0.03250069083583379
+            </attr>
+            <attr name="samples">20</attr>
 
-	<!-- A prior assumption that the population size has remained constant       -->
-	<!-- throughout the time spanned by the genealogy.                           -->
-	<constantSize id="constant" units="years">
-		<populationSize>
-			<parameter id="constant.popSize" value="1.0" lower="0.0"/>
-		</populationSize>
-	</constantSize>
+        </taxon>
+        <taxon id="02020">
+            <attr name="Location">0.39969185651187356 -0.19570419468405503 3.724060590880125 0.17230524982807077
+                0.20532182464542575 -0.6627389549275298 0.11624585716943699 0.17660428300741393 0.01685221006302489
+                0.11211878531726749
+            </attr>
+            <attr name="samples">2</attr>
 
+        </taxon>
+        <!--  <taxon id="02050">-->
+        <!--    <attr name="Location">3.4323256381217426 0.1318003288803254 -1.2918564190840343 -0.04213052515756222 -0.1686940619574226 3.122301817493295 -0.013412983519550425 -0.23730663149973824 -0.008082182377164996 -0.1621595315248212</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02060">-->
+        <!--    <attr name="Location">2.505993163953164 1.4046149389589957 -0.2561231098179857 -0.05709116062167616 0.24022997406169155 0.469282461857091 0.03645580136082935 -0.17746408964328253 0.01685221006302489 0.03731560799669792</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02068">-->
+        <!--    <attr name="Location">0.7986619834240963 -1.60400642840544 -1.9843093313164675 0.027685773674969466 -0.18864157590957448 -0.9220566363055047 -0.02338674049562638 -0.19242472510739644 0.001891574598910959 0.22681699054214105</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02070">-->
+        <!--    <attr name="Location">2.9939441729801666 0.7765804899580262 -1.724943709933398 -0.007222375741296375 -0.11383839858900482 2.6535352396177254 -0.0183998620075884 -0.2722147809160041 -0.008082182377164996 -0.01255317688368185</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02090">-->
+        <!--    <attr name="Location">0.03634715000146668 -2.3164786730425457 1.5753089496453698 0.14238397889984294 0.14547928278896993 -0.6427914409753779 0.0015476519445635079 -0.1325821832509407 0.02183908855106287 0.0024074585804320647</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02100">-->
+        <!--    <attr name="Location">-3.713311359981722 -0.00284637247955574 -0.5465804037478854 -0.08202555306186604 -0.004127071852169317 -0.6926602258557577 -0.013412983519550425 -0.2023984820834724 -0.008082182377164996 0.3764233451832803</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02105">-->
+        <!--    <attr name="Location">-4.028059146574868 0.5159524619962652 -1.563875476489478 0.07755455855534923 0.20033494615738778 0.5241381252255088 -0.02338674049562638 -0.17746408964328253 -0.008082182377164996 0.1021450283411916</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02110">-->
+        <!--    <attr name="Location">-4.254331915462514 0.24402680538871022 1.4715745569080543 -0.037143646669524244 0.0806498624444763 -0.5181194787744285 0.03645580136082935 0.04195856383038854 -0.008082182377164996 0.20686947658998905</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02122">-->
+        <!--    <attr name="Location">1.1989264164777875 0.3746081686261935 0.4810000468297537 -0.05709116062167616 -0.053995856732549086 -0.622843927023226 -0.0034392265434744704 -0.21237223905954833 0.026825967039100847 -0.06740884025209964</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02130">-->
+        <!--    <attr name="Location">-5.792396676943614 1.4478206442581731 0.2666148222840121 -0.0471174036456002 0.010833563611944597 -0.31365746076487144 -0.013412983519550425 0.10678798417488222 0.0068784530869489355 0.06225000043688772</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02150">-->
+        <!--    <attr name="Location">1.4453725311640566 2.0353174030106267 -0.031461053477113476 -0.06207803910971413 0.1853743106932738 -0.40840815203759295 -0.013412983519550425 0.8448460004045029 0.01685221006302489 0.012381215556508007</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02164">-->
+        <!--    <attr name="Location">2.411520801885226 1.7077626492858133 -3.171345510208501 0.2620690626127544 -0.24848411776603022 1.9204641018761426 -0.008426105031512449 -0.18245096813132047 -0.0030953038891270183 0.02235497253258395</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02170">-->
+        <!--    <attr name="Location">0.5185696214326009 -0.7664966151772246 0.6232254495398105 -0.01719613271737233 -0.004127071852169317 -0.7126077398079096 -0.008426105031512449 -0.2173591175475863 0.001891574598910959 0.01736809404454598</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02195">-->
+        <!--    <attr name="Location">-4.807021281628256 1.1116806065586569 -0.5136749986132698 0.01771201669889351 0.12054489034878013 -0.6926602258557577 -0.013412983519550425 0.4309350858973507 0.001891574598910959 0.07721063590100169</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02198">-->
+        <!--    <attr name="Location">-5.264717510515839 1.6967629102818156 -0.46077442369348387 -0.05210428213363818 -0.07394337068470103 0.9280752827565848 0.006534530432601483 -0.2173591175475863 -0.0030953038891270183 0.13206629926941943</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02220">-->
+        <!--    <attr name="Location">-4.170949795279529 1.043745299795722 0.3064312406378755 -0.06207803910971413 0.0806498624444763 -0.45329005842993486 -0.013412983519550425 0.08684047022273028 0.001891574598910959 0.2567382614703689</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02230">-->
+        <!--    <attr name="Location">-3.6860613323210494 -0.28772174642488957 0.3093103884426167 0.09750207250750115 -0.06396961370862506 -0.8023715525925932 -0.02338674049562638 -0.16250345417916856 0.001891574598910959 0.09217127136511566</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02240">-->
+        <!--    <attr name="Location">-0.8960588579896287 -2.029261619441217 -1.6965584342648412 -0.04213052515756222 0.06568922698036234 -0.31365746076487144 -0.0183998620075884 -0.15252969720309262 -0.008082182377164996 -0.19706768094108704</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02275">-->
+        <!--    <attr name="Location">-5.3257655456737405 1.123404547670687 -0.6322404451207535 -0.06706491759775211 -0.06895649219666306 0.02545027642171105 0.041442679848867334 -0.20738536057151036 -0.008082182377164996 0.03731560799669792</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02282">-->
+        <!--    <attr name="Location">-2.252769929962182 -0.07202710335904507 -2.7669897220761643 0.20222652075629866 0.5145082909037803 0.21993853745519232 -0.008426105031512449 0.12673549812703416 -0.008082182377164996 0.3066070463507487</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02290">-->
+        <!--    <attr name="Location">1.2999949052665931 -2.5279699285400588 -3.4127619366411786 -0.07703867457382807 -0.1387727910291947 2.4191519506799404 -0.02338674049562638 -0.2622410239399281 -0.008082182377164996 -0.007566298395643933</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02180">-->
+        <!--    <attr name="Location">4.376493141872334 -2.1508483699885437 NA NA NA NA NA NA NA NA</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02185">-->
+        <!--    <attr name="Location">1.9396237269907148 -4.822297285825967 NA NA NA NA NA NA NA NA</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02188">-->
+        <!--    <attr name="Location">3.3159876442897227 -3.376627095156345 NA NA NA NA NA NA NA NA</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02261">-->
+        <!--    <attr name="Location">-0.7482226536829804 -0.5020542907931196 NA NA NA NA NA NA NA NA</attr>-->
+        <!--  </taxon>-->
+        <!--  <taxon id="02270">-->
+        <!--    <attr name="Location">4.233219647761208 -0.6899655447709159 NA NA NA NA NA NA NA NA</attr>-->
+        <!--  </taxon>-->
+    </taxa>
 
-	<!-- Generate a random starting tree under the coalescent process            -->
-	<coalescentSimulator id="startingTree">
-		<taxa idref="taxa"/>
-		<constantSize idref="constant"/>
-	</coalescentSimulator>
-
-
-	<!-- Generate a tree model                                                   -->
-	<treeModel id="treeModel">
-		<coalescentTree idref="startingTree"/>
-		<rootHeight>
-			<parameter id="treeModel.rootHeight"/>
-		</rootHeight>
-		<nodeHeights internalNodes="true">
-			<parameter id="treeModel.internalNodeHeights"/>
-		</nodeHeights>
-		<nodeHeights internalNodes="true" rootNode="true">
-			<parameter id="treeModel.allInternalNodeHeights"/>
-		</nodeHeights>
-	</treeModel>
-
-	<adjacentTaxa id="adjacency">
-		<treeModel idref="treeModel"/>
-		<adjacency>
-			<taxon idref="02270"/>
-			<taxon idref="02261"/>
-		</adjacency>
-	</adjacentTaxa>
-
-	<contiguityModel id="contiguity">
-		<adjacentTaxa idref="adjacency"/>
-		<threshold>
-			<parameter value="0.5"/>
-		</threshold>
-	</contiguityModel>
-
-	<!-- Statistic for sum of the branch lengths of the tree (tree length)       -->
-	<treeLengthStatistic id="treeLength">
-		<treeModel idref="treeModel"/>
-	</treeLengthStatistic>
+    <!-- A prior assumption that the population size has remained constant       -->
+    <!-- throughout the time spanned by the genealogy.                           -->
+    <constantSize id="constant" units="years">
+        <populationSize>
+            <parameter id="constant.popSize" value="1.0" lower="0.0"/>
+        </populationSize>
+    </constantSize>
 
 
-	<!-- Generate a coalescent likelihood                                        -->
-	<coalescentLikelihood id="coalescent">
-		<model>
-			<constantSize idref="constant"/>
-		</model>
-		<populationTree>
-			<treeModel idref="treeModel"/>
-		</populationTree>
-	</coalescentLikelihood>
+    <!-- Generate a random starting tree under the coalescent process            -->
+    <coalescentSimulator id="startingTree">
+        <taxa idref="taxa"/>
+        <constantSize idref="constant"/>
+    </coalescentSimulator>
 
 
+    <!-- Generate a tree model                                                   -->
+    <treeModel id="treeModel">
+        <coalescentTree idref="startingTree"/>
+        <rootHeight>
+            <parameter id="treeModel.rootHeight"/>
+        </rootHeight>
+        <nodeHeights internalNodes="true">
+            <parameter id="treeModel.internalNodeHeights"/>
+        </nodeHeights>
+        <nodeHeights internalNodes="true" rootNode="true">
+            <parameter id="treeModel.allInternalNodeHeights"/>
+        </nodeHeights>
+        <nodeTraits name="samples" rootNode="false" internalNodes="false" leafNodes="true" traitDimension="1">
+            <parameter id="samples.leafTraits"/>
+        </nodeTraits>
+    </treeModel>
 
-	<!-- START Multivariate diffusion model                                      -->
+    <traitDataLikelihood id="dummy.likelihood" traitName="samples" standardize="false" useTreeLength="false"
+                         scaleByTime="false" reportAsMultivariate="true" reciprocalRates="false"
+                         integrateInternalTraits="true">
+        <multivariateDiffusionModel>
+            <precisionMatrix>
+                <matrixParameter>
+                    <parameter value="20"/>
+                </matrixParameter>
+            </precisionMatrix>
+        </multivariateDiffusionModel>
+        <treeModel idref="treeModel"/>
+        <traitParameter>
+            <parameter idref="samples.leafTraits"/>
+        </traitParameter>
+        <conjugateRootPrior>
+            <meanParameter>
+                <parameter value="0.0"/>
+            </meanParameter>
+            <priorSampleSize>
+                <parameter value="0.000001"/>
+            </priorSampleSize>
+        </conjugateRootPrior>
+    </traitDataLikelihood>
 
-	<multivariateDiffusionModel id="Location.diffusionModel">
-		<precisionMatrix>
-			<matrixParameter id="Location.precision">
-				<parameter id="Location.precision.col1" value="20"/>
-			</matrixParameter>
-		</precisionMatrix>
-	</multivariateDiffusionModel>
+    <adjacentTaxa id="adjacency">
+        <treeModel idref="treeModel"/>
+        <adjacency sharedPerimeter="1">
+            <taxonData perimeter="4" area="2">
+                <taxon idref="02013"/>
+            </taxonData>
+            <taxonData perimeter="4" area="2">
+                <taxon idref="02016"/>
+            </taxonData>
+        </adjacency>
+        <adjacency sharedPerimeter="1">
+            <taxonData perimeter="4" area="2">
+                <taxon idref="02020"/>
+            </taxonData>
+            <taxonData perimeter="4" area="2">
+                <taxon idref="02016"/>
+            </taxonData>
+        </adjacency>
+        <adjacency sharedPerimeter="1">
+            <taxonData perimeter="4" area="2">
+                <taxon idref="02013"/>
+            </taxonData>
+            <taxonData perimeter="4" area="2">
+                <taxon idref="02020"/>
+            </taxonData>
+        </adjacency>
+    </adjacentTaxa>
 
-	<multivariateWishartPrior id="Location.precisionPrior" df="1">
-		<scaleMatrix>
-			<matrixParameter>
-				<parameter value="1.0"/>
-			</matrixParameter>
-		</scaleMatrix>
-		<data>
-			<parameter idref="Location.precision"/>
-		</data>
-	</multivariateWishartPrior>
+    <contiguityStatistic id="contiguity">
+        <adjacentTaxa idref="adjacency"/>
+        <threshold>
+            <parameter value="99999"/>
+        </threshold>
+    </contiguityStatistic>
 
-	<!-- END Multivariate diffusion model                                        -->
+    <groupSumStatistic id="groupSums">
+        <treeModel idref="treeModel"/>
+        <height>
+            <parameter value="10"/>
+        </height>
+        <traitParameter>
+            <parameter idref="samples.leafTraits"/>
+        </traitParameter>
+    </groupSumStatistic>
 
+    <distributionLikelihood id="groupPrior">
+        <data>
+            <groupSumStatistic idref="groupSums"/>
+        </data>
+        <distribution>
+            <groupSizeDistribution start="20" end="40" alpha="10" beta="3"/>
+        </distribution>
+    </distributionLikelihood>
 
-	<!-- START Multivariate diffusion model                                      -->
+    <negativeBinomialPrior mean="0.01010101010101011" stdev="0.10101010101010106">
+        <contiguityStatistic idref="contiguity"/>
+    </negativeBinomialPrior>
 
-	<traitDataLikelihood id="Location.traitLikelihood" traitName="Location" standardize="false" useTreeLength="false" scaleByTime="false" reportAsMultivariate="true" reciprocalRates="false" integrateInternalTraits="true">
-		<multivariateDiffusionModel idref="Location.diffusionModel"/>
-		<treeModel idref="treeModel"/>
-		<traitParameter>
-			<parameter id="leaf.Location"/>
-		</traitParameter>
-		<conjugateRootPrior>
-			<meanParameter>
-				<parameter value="0.0"/>
-			</meanParameter>
-			<priorSampleSize>
-				<parameter value="0.000001"/>
-			</priorSampleSize>
-		</conjugateRootPrior>
-	</traitDataLikelihood>
-	<!-- <correlation id="Location.correlation" dimension1="1" dimension2="2">
-		<matrixParameter idref="Location.precision"/>
-	</correlation> -->
-	<matrixInverse id="Location.varCovar">
-		<matrixParameter idref="Location.precision"/>
-	</matrixInverse>
-	<traitDataContinuousDiffusionStatistic id="Location.diffusionRate" traitName="Location" displacementScheme="linear" scalingScheme="dependent" weightingScheme="weighted">
-		<traitDataLikelihood idref="Location.traitLikelihood"/>
-	</traitDataContinuousDiffusionStatistic>
-
-	<!-- END Multivariate diffusion model                                        -->
-
-
-	<!-- Define operators                                                        -->
-	<operators id="operators" optimizationSchedule="log">
-		<subtreeSlide size="1.0" gaussian="true" weight="30">
-			<treeModel idref="treeModel"/>
-		</subtreeSlide>
-		<narrowExchange weight="30">
-			<treeModel idref="treeModel"/>
-		</narrowExchange>
-		<wideExchange weight="3">
-			<treeModel idref="treeModel"/>
-		</wideExchange>
-		<wilsonBalding weight="3">
-			<treeModel idref="treeModel"/>
-		</wilsonBalding>
-		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="treeModel.rootHeight"/>
-		</scaleOperator>
-		<uniformOperator weight="30">
-			<parameter idref="treeModel.internalNodeHeights"/>
-		</uniformOperator>
-		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="constant.popSize"/>
-		</scaleOperator>
-
-		<!-- START Multivariate diffusion model                                      -->
-		<!-- <precisionGibbsOperator weight="2">
-			<wishartStatistics traitName="Location">
-				<traitDataLikelihood idref="Location.traitLikelihood"/>
-			</wishartStatistics>
-			<multivariateWishartPrior idref="Location.precisionPrior"/>
-		</precisionGibbsOperator> -->
-
-		<!-- END Multivariate diffusion model                                        -->
-
-	</operators>
-
-
-	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="1000000" autoOptimize="true" operatorAnalysis="AK.ops">
-		<joint id="joint">
-			<prior id="prior">
-				<gammaPrior shape="1000.0" scale="0.001" offset="0.0">
-					<parameter idref="treeModel.rootHeight"/>
-				</gammaPrior>
-				<gammaPrior shape="1000.0" scale="0.001" offset="0.0">
-					<parameter idref="constant.popSize"/>
-				</gammaPrior>
-				<coalescentLikelihood idref="coalescent"/>
-
-
-
-				<!-- START Multivariate diffusion model                                      -->
-				<multivariateWishartPrior idref="Location.precisionPrior"/>
-
-				<!-- END Multivariate diffusion model                                        -->
-
-			</prior>
-			<likelihood id="likelihood">
-
-				<!-- START Multivariate diffusion model                                      -->
-				<traitDataLikelihood idref="Location.traitLikelihood"/>
-
-				<!-- END Multivariate diffusion model                                        -->
-
-			</likelihood>
-		</joint>
-		<operators idref="operators"/>
-
-		<!-- write log to screen                                                     -->
-		<log id="screenLog" logEvery="1000">
-			<column label="Joint" dp="4" width="12">
-				<joint idref="joint"/>
-			</column>
-			<column label="Prior" dp="4" width="12">
-				<prior idref="prior"/>
-			</column>
-			<column label="Likelihood" dp="4" width="12">
-				<likelihood idref="likelihood"/>
-			</column>
-			<column label="rootHeight" sf="6" width="12">
-				<parameter idref="treeModel.rootHeight"/>
-			</column>
-		</log>
-
-		<!-- write log to file                                                       -->
-		<log id="fileLog" logEvery="100" fileName="AK.log" overwrite="false">
-			<joint idref="joint"/>
-			<prior idref="prior"/>
-			<likelihood idref="likelihood"/>
-			<parameter idref="treeModel.rootHeight"/>
-			<treeLengthStatistic idref="treeLength"/>
-			<parameter idref="constant.popSize"/>
-
-			<!-- START Multivariate diffusion model                                      -->
-			<matrixParameter idref="Location.precision"/>
-			<!-- <correlation idref="Location.correlation"/> -->
-			<matrixInverse idref="Location.varCovar"/>
-			<traitDataContinuousDiffusionStatistic idref="Location.diffusionRate"/>
-
-			<!-- END Multivariate diffusion model                                        -->
+    <!-- Statistic for sum of the branch lengths of the tree (tree length)       -->
+    <treeLengthStatistic id="treeLength">
+        <treeModel idref="treeModel"/>
+    </treeLengthStatistic>
 
 
-			<!-- START Multivariate diffusion model                                      -->
-			<traitDataLikelihood idref="Location.traitLikelihood"/>
-
-			<!-- END Multivariate diffusion model                                        -->
-
-			<coalescentLikelihood idref="coalescent"/>
-
-		</log>
-
-		<!-- write tree log to file                                                  -->
-		<logTree id="treeFileLog" logEvery="100" nexusFormat="true" fileName="AK.trees" sortTranslationTable="true">
-			<treeModel idref="treeModel"/>
-			<joint idref="joint"/>
-
-			<!-- START Ancestral state reconstruction                                    -->
-			<trait name="Location" tag="Location">
-				<traitDataLikelihood idref="Location.traitLikelihood"/>
-			</trait>
-
-			<!-- END Ancestral state reconstruction                                      -->
+    <!-- Generate a coalescent likelihood                                        -->
+    <coalescentLikelihood id="coalescent">
+        <model>
+            <constantSize idref="constant"/>
+        </model>
+        <populationTree>
+            <treeModel idref="treeModel"/>
+        </populationTree>
+    </coalescentLikelihood>
 
 
-			<!-- START Multivariate diffusion model                                      -->
-			<multivariateDiffusionModel idref="Location.diffusionModel"/>
-			<traitDataLikelihood idref="Location.traitLikelihood"/>
+    <!-- START Multivariate diffusion model                                      -->
 
-			<!-- END Multivariate diffusion model                                        -->
+    <multivariateDiffusionModel id="Location.diffusionModel">
+        <precisionMatrix>
+            <matrixParameter id="Location.precision">
+                <parameter id="Location.precision.col1" value="20"/>
+            </matrixParameter>
+        </precisionMatrix>
+    </multivariateDiffusionModel>
 
-		</logTree>
-	</mcmc>
+    <multivariateWishartPrior id="Location.precisionPrior" df="1">
+        <scaleMatrix>
+            <matrixParameter>
+                <parameter value="1.0"/>
+            </matrixParameter>
+        </scaleMatrix>
+        <data>
+            <parameter idref="Location.precision"/>
+        </data>
+    </multivariateWishartPrior>
 
-	<report>
-		<property name="timer">
-			<mcmc idref="mcmc"/>
-		</property>
-	</report>
+    <!-- END Multivariate diffusion model                                        -->
+
+
+    <!-- START Multivariate diffusion model                                      -->
+
+    <traitDataLikelihood id="Location.traitLikelihood" traitName="Location" standardize="false" useTreeLength="false"
+                         scaleByTime="false" reportAsMultivariate="true" reciprocalRates="false"
+                         integrateInternalTraits="true">
+        <multivariateDiffusionModel idref="Location.diffusionModel"/>
+        <treeModel idref="treeModel"/>
+        <traitParameter>
+            <parameter id="leaf.Location"/>
+        </traitParameter>
+        <conjugateRootPrior>
+            <meanParameter>
+                <parameter value="0.0"/>
+            </meanParameter>
+            <priorSampleSize>
+                <parameter value="0.000001"/>
+            </priorSampleSize>
+        </conjugateRootPrior>
+    </traitDataLikelihood>
+    <!-- <correlation id="Location.correlation" dimension1="1" dimension2="2">
+        <matrixParameter idref="Location.precision"/>
+    </correlation> -->
+    <matrixInverse id="Location.varCovar">
+        <matrixParameter idref="Location.precision"/>
+    </matrixInverse>
+    <traitDataContinuousDiffusionStatistic id="Location.diffusionRate" traitName="Location" displacementScheme="linear"
+                                           scalingScheme="dependent" weightingScheme="weighted">
+        <traitDataLikelihood idref="Location.traitLikelihood"/>
+    </traitDataContinuousDiffusionStatistic>
+
+    <!-- END Multivariate diffusion model                                        -->
+
+
+    <!-- Define operators                                                        -->
+    <operators id="operators" optimizationSchedule="log">
+        <subtreeSlide size="1.0" gaussian="true" weight="30">
+            <treeModel idref="treeModel"/>
+        </subtreeSlide>
+        <narrowExchange weight="30">
+            <treeModel idref="treeModel"/>
+        </narrowExchange>
+        <wideExchange weight="3">
+            <treeModel idref="treeModel"/>
+        </wideExchange>
+        <wilsonBalding weight="3">
+            <treeModel idref="treeModel"/>
+        </wilsonBalding>
+        <scaleOperator scaleFactor="0.75" weight="3">
+            <parameter idref="treeModel.rootHeight"/>
+        </scaleOperator>
+        <uniformOperator weight="30">
+            <parameter idref="treeModel.internalNodeHeights"/>
+        </uniformOperator>
+        <scaleOperator scaleFactor="0.75" weight="3">
+            <parameter idref="constant.popSize"/>
+        </scaleOperator>
+
+        <!-- START Multivariate diffusion model                                      -->
+        <!-- <precisionGibbsOperator weight="2">
+            <wishartStatistics traitName="Location">
+                <traitDataLikelihood idref="Location.traitLikelihood"/>
+            </wishartStatistics>
+            <multivariateWishartPrior idref="Location.precisionPrior"/>
+        </precisionGibbsOperator> -->
+
+        <!-- END Multivariate diffusion model                                        -->
+
+    </operators>
+
+
+    <!-- Define MCMC                                                             -->
+    <mcmc id="mcmc" chainLength="1000000" autoOptimize="true" operatorAnalysis="AK.ops">
+        <joint id="joint">
+            <prior id="prior">
+                <gammaPrior shape="1000.0" scale="0.001" offset="0.0">
+                    <parameter idref="treeModel.rootHeight"/>
+                </gammaPrior>
+                <gammaPrior shape="1000.0" scale="0.001" offset="0.0">
+                    <parameter idref="constant.popSize"/>
+                </gammaPrior>
+                <coalescentLikelihood idref="coalescent"/>
+                <negativeBinomialPrior mean="0.01010101010101011" stdev="0.10101010101010106">
+                    <contiguityStatistic idref="contiguity"/>
+                </negativeBinomialPrior>
+                <distributionLikelihood idref="groupPrior"/>
+
+
+                <!-- START Multivariate diffusion model                                      -->
+                <multivariateWishartPrior idref="Location.precisionPrior"/>
+
+                <!-- END Multivariate diffusion model                                        -->
+
+            </prior>
+            <likelihood id="likelihood">
+
+                <!-- START Multivariate diffusion model                                      -->
+                <traitDataLikelihood idref="Location.traitLikelihood"/>
+
+                <!-- END Multivariate diffusion model                                        -->
+
+            </likelihood>
+        </joint>
+        <operators idref="operators"/>
+
+        <!-- write log to screen                                                     -->
+        <log id="screenLog" logEvery="1000">
+            <column label="Joint" dp="4" width="12">
+                <joint idref="joint"/>
+            </column>
+            <column label="Prior" dp="4" width="12">
+                <prior idref="prior"/>
+            </column>
+            <column label="Likelihood" dp="4" width="12">
+                <likelihood idref="likelihood"/>
+            </column>
+            <column label="rootHeight" sf="6" width="12">
+                <parameter idref="treeModel.rootHeight"/>
+            </column>
+        </log>
+
+        <!-- write log to file                                                       -->
+        <log id="fileLog" logEvery="100" fileName="AK.log" overwrite="false">
+            <joint idref="joint"/>
+            <prior idref="prior"/>
+            <likelihood idref="likelihood"/>
+            <contiguityStatistic idref="contiguity"/>
+            <groupSumStatistic idref="groupSums"/>
+
+            <parameter idref="treeModel.rootHeight"/>
+            <treeLengthStatistic idref="treeLength"/>
+            <parameter idref="constant.popSize"/>
+
+            <!-- START Multivariate diffusion model                                      -->
+            <matrixParameter idref="Location.precision"/>
+            <!-- <correlation idref="Location.correlation"/> -->
+            <matrixInverse idref="Location.varCovar"/>
+            <traitDataContinuousDiffusionStatistic idref="Location.diffusionRate"/>
+
+            <!-- END Multivariate diffusion model                                        -->
+
+
+            <!-- START Multivariate diffusion model                                      -->
+            <traitDataLikelihood idref="Location.traitLikelihood"/>
+
+            <!-- END Multivariate diffusion model                                        -->
+
+            <coalescentLikelihood idref="coalescent"/>
+
+        </log>
+
+        <!-- write tree log to file                                                  -->
+        <logTree id="treeFileLog" logEvery="100" nexusFormat="true" fileName="AK.trees" sortTranslationTable="true">
+            <treeModel idref="treeModel"/>
+            <joint idref="joint"/>
+
+            <!-- START Ancestral state reconstruction                                    -->
+            <trait name="Location" tag="Location">
+                <traitDataLikelihood idref="Location.traitLikelihood"/>
+            </trait>
+
+            <!-- END Ancestral state reconstruction                                      -->
+
+
+            <!-- START Multivariate diffusion model                                      -->
+            <multivariateDiffusionModel idref="Location.diffusionModel"/>
+            <traitDataLikelihood idref="Location.traitLikelihood"/>
+
+            <!-- END Multivariate diffusion model                                        -->
+
+        </logTree>
+    </mcmc>
+
+    <report>
+        <property name="timer">
+            <mcmc idref="mcmc"/>
+        </property>
+    </report>
 
 </beast>
