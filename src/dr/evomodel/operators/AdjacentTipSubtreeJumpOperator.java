@@ -2,6 +2,7 @@ package dr.evomodel.operators;
 
 import dr.evolution.tree.NodeRef;
 import dr.evolution.tree.Tree;
+import dr.evolution.tree.TreeUtils;
 import dr.evomodel.territorydesign.TaxaAdjacencyMatrix;
 import dr.evomodel.tree.TreeModel;
 import dr.inference.operators.AdaptationMode;
@@ -9,6 +10,7 @@ import dr.math.MathUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class AdjacentTipSubtreeJumpOperator extends SubtreeJumpOperator {
     private final TaxaAdjacencyMatrix adjacency;
@@ -62,9 +64,13 @@ public class AdjacentTipSubtreeJumpOperator extends SubtreeJumpOperator {
     }
 
     private boolean isAdjacent(Tree tree, NodeRef testNode, NodeRef targetNode) {
+        Set<NodeRef> descendants = TreeUtils.getExternalNodes(tree, targetNode);
+
         if (tree.isExternal(testNode)) {
-            if (adjacency.areAdjacent(testNode.getNumber(), targetNode.getNumber())) {
-                return true;
+            for (NodeRef descendant : descendants) {
+                if (adjacency.areAdjacent(testNode.getNumber(), descendant.getNumber())) {
+                    return true;
+                }
             }
             return false;
         }
