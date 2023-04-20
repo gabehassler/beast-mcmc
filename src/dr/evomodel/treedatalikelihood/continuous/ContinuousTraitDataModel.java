@@ -74,8 +74,8 @@ public class ContinuousTraitDataModel extends AbstractModel implements Continuou
         addVariable(parameter);
 
         this.originalMissingIndicators = missingIndicators;
-        this.useMissingIndices = true;
-        this.missingIndicators = (useMissingIndices ? missingIndicators : new boolean[missingIndicators.length]);
+        this.useMissingIndices = useMissingIndices;
+        this.missingIndicators = (useMissingIndices ? missingIndicators : null);
 
         this.dimTrait = dimTrait;
         this.numTraits = numTraits;
