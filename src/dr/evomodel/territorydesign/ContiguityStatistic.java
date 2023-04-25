@@ -3,7 +3,6 @@ package dr.evomodel.territorydesign;
 import dr.evolution.tree.NodeRef;
 import dr.evomodel.tree.TreeModel;
 import dr.inference.model.*;
-import dr.math.distributions.Distribution;
 import dr.xml.*;
 
 import java.util.ArrayList;
@@ -33,6 +32,7 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
 //        this.perimeterDistribution = perimeterDistribution;
         this.discontiguityPenalty = discontiguityPenalty;
         this.useThreshold = threshold != null;
+        addModel(adjacencyMatrix.getTreeModel());
     }
 
     private void update() {
@@ -102,11 +102,13 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
 
     @Override
     protected void handleModelChangedEvent(Model model, Object object, int index) {
+//        fireModelChanged();
         // do nothing
     }
 
     @Override
     protected void handleVariableChangedEvent(Variable variable, int index, Parameter.ChangeType type) {
+//        fireModelChanged();
         // do nothing
     }
 
@@ -143,7 +145,7 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
 
     @Override
     public void makeDirty() {
-        // do nothing
+//        fireModelChanged();
     }
 
     private static class AdjacencyAccumulator {
