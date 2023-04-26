@@ -17,8 +17,8 @@ public class PerimeterAreaRatioProvider extends Statistic.Abstract implements Mo
     private double meanRatio;
 
     private boolean needsUpdate = true;
-    private final boolean weightByArea = true;
-    private final boolean normalizeByAverate = true;
+    private static boolean weightByArea = false;
+    private static boolean normalizeByAverage = true;
 
     PerimeterAreaRatioProvider(TaxonGroupsProvider taxonGroups, TaxaAdjacencyMatrix adjacency, Parameter perimeter, Parameter area) {
         this.taxonGroups = taxonGroups;
@@ -57,19 +57,37 @@ public class PerimeterAreaRatioProvider extends Statistic.Abstract implements Mo
             int m = taxa.size();
             double perimeter = 0;
             double area = 0;
+            double groupAverage = 0;
             for (int j = 0; j < m; j++) {
-                area += this.area.getParameterValue(taxa.get(j));
-                perimeter += this.perimeter.getParameterValue(taxa.get(j));
+                double p = this.perimeter.getParameterValue(taxa.get(j));
+                double a = this.area.getParameterValue(taxa.get(j));
+                area += a;
+                perimeter += p;
+
+                if (weightByArea) {
+                    groupAverage += p * p;
+                } else {
+                    groupAverage += p * p / a;
+                }
+
                 for (int k = j + 1; k < m; k++) {
                     perimeter -= 2 * adjacency.getSharedPerimeter(taxa.get(j), taxa.get(k));
                 }
             }
+
+            double r = perimeter * perimeter;
             if (weightByArea) {
-                sum += perimeter * perimeter;
                 meanArea += area;
+                groupAverage /= area / m;
             } else {
-                sum += perimeter * perimeter / area;
+                r /= area;
             }
+
+            if (normalizeByAverage) {
+                r /= groupAverage / m;
+            }
+
+            sum += r;
         }
 
         meanRatio = sum / n;
