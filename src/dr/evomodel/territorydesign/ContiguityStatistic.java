@@ -7,32 +7,30 @@ import dr.xml.*;
 
 import java.util.ArrayList;
 
-public class ContiguityStatistic extends AbstractModelLikelihood {
+public class ContiguityStatistic extends Statistic.Abstract implements ModelListener {
 
     private final TaxaAdjacencyMatrix adjacencyMatrix;
+    private final TreeModel treeModel;
     private final Parameter threshold;
-    private int nDiscongiguities = 0;
+    private int nDiscongiguities;
     //    private double[] areas;
     //    private double[] perimeters;
     private double[] groupSizes;
     //    private final Distribution groupSizeDistribution;
 //    private final Distribution perimeterDistribution;
-    private final double discontiguityPenalty;
     private final boolean useThreshold;
+    private boolean needToUpdate = true;
+    private int oldNDiscontiguities;
+    private boolean oldNeedToUpdate;
 
     public ContiguityStatistic(TaxaAdjacencyMatrix adjacencyMatrix,
-                               Parameter threshold,
-//                               Distribution groupSizeDistribution,
-//                               Distribution perimeterDistribution,
-                               double discontiguityPenalty) {
-        super(CONTIGUITY_LIKELIHOOD);
+                               Parameter threshold) {
+        super(CONTIGUITY_STATISTIC);
         this.adjacencyMatrix = adjacencyMatrix;
         this.threshold = threshold;
-//        this.groupSizeDistribution = groupSizeDistribution;
-//        this.perimeterDistribution = perimeterDistribution;
-        this.discontiguityPenalty = discontiguityPenalty;
         this.useThreshold = threshold != null;
-        addModel(adjacencyMatrix.getTreeModel());
+        this.treeModel = adjacencyMatrix.getTreeModel();
+        treeModel.addModelListener(this);
     }
 
     private void update() {
@@ -101,51 +99,40 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
     }
 
     @Override
-    protected void handleModelChangedEvent(Model model, Object object, int index) {
-//        fireModelChanged();
-        // do nothing
+    public int getDimension() {
+        return 1;
     }
 
     @Override
-    protected void handleVariableChangedEvent(Variable variable, int index, Parameter.ChangeType type) {
-//        fireModelChanged();
-        // do nothing
+    public double getStatisticValue(int dim) {
+        needToUpdate = true; // temporary. need to figure out why model restored isn't working
+        if (needToUpdate) {
+            update();
+            needToUpdate = false;
+        }
+        return nDiscongiguities;
     }
 
     @Override
-    protected void storeState() {
-        // do nothing
+    public void modelChangedEvent(Model model, Object object, int index) {
+        if (model == treeModel) {
+            oldNDiscontiguities = nDiscongiguities;
+            oldNeedToUpdate = needToUpdate;
+            needToUpdate = true;
+        } else {
+            throw new RuntimeException("unrecognized model");
+        }
     }
 
     @Override
-    protected void restoreState() {
-        // do nothing
-    }
-
-    @Override
-    protected void acceptState() {
-        // do nothing
-    }
-
-    @Override
-    public Model getModel() {
-        return this;
-    }
-
-    @Override
-    public double getLogLikelihood() {
-        update();
-        double ll = -discontiguityPenalty * nDiscongiguities;
-//        for (int i = 0; i < areas.length; i++) {
-//            double ratio = perimeters[i] * perimeters[i] / areas[i];
-//            ll += perimeterDistribution.logPdf(ratio) * groupSizes[i];
+    public void modelRestored(Model model) {
+//        if (model == treeModel) {
+//            nDiscongiguities = oldNDiscontiguities;
+//            needToUpdate = oldNeedToUpdate;
+//        } else {
+//            throw new RuntimeException("unrecognized model");
 //        }
-        return ll;
-    }
-
-    @Override
-    public void makeDirty() {
-//        fireModelChanged();
+        needToUpdate = true;
     }
 
     private static class AdjacencyAccumulator {
@@ -163,7 +150,7 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
     private static String THRESHOLD = "threshold";
     private static String PENALTY = "discontiguityPenalty";
     private static String RATIO_DISTRIBUTION = "perimeterAreaRatioDistribution";
-    private static String CONTIGUITY_LIKELIHOOD = "contiguityLikelihood";
+    private static String CONTIGUITY_STATISTIC = "contiguityStatistic";
 
     public static AbstractXMLObjectParser PARSER = new AbstractXMLObjectParser() {
         @Override
@@ -175,8 +162,8 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
                 threshold = (Parameter) xo.getChild(THRESHOLD).getChild(Parameter.class);
             }
 //            Distribution ratioDistribution = (Distribution) xo.getChild(RATIO_DISTRIBUTION).getChild(Distribution.class);
-            double penalty = xo.getDoubleAttribute(PENALTY);
-            return new ContiguityStatistic(adjacencyMatrix, threshold, penalty);
+//            double penalty = xo.getDoubleAttribute(PENALTY);
+            return new ContiguityStatistic(adjacencyMatrix, threshold);
         }
 
         @Override
@@ -189,7 +176,7 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
 //                    new ElementRule(RATIO_DISTRIBUTION, new XMLSyntaxRule[]{
 //                            new ElementRule(Distribution.class)
 //                    }),
-                    AttributeRule.newDoubleRule(PENALTY)
+//                    AttributeRule.newDoubleRule(PENALTY)
             };
         }
 
@@ -205,7 +192,7 @@ public class ContiguityStatistic extends AbstractModelLikelihood {
 
         @Override
         public String getParserName() {
-            return CONTIGUITY_LIKELIHOOD;
+            return CONTIGUITY_STATISTIC;
         }
     };
 }
