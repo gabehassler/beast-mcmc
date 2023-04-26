@@ -17,12 +17,14 @@ public class PerimeterAreaRatioProvider extends Statistic.Abstract implements Mo
     private double meanRatio;
 
     private boolean needsUpdate = true;
+    private final boolean weightByArea = true;
 
     PerimeterAreaRatioProvider(TaxonGroupsProvider taxonGroups, TaxaAdjacencyMatrix adjacency, Parameter perimeter, Parameter area) {
         this.taxonGroups = taxonGroups;
         this.adjacency = adjacency;
         this.perimeter = perimeter;
         this.area = area;
+//        this.weightByArea = weightByArea;
         taxonGroups.addModelListener(this);
     }
 
@@ -45,6 +47,7 @@ public class PerimeterAreaRatioProvider extends Statistic.Abstract implements Mo
         ArrayList<TaxonGroupsProvider.Accumulator> groups = taxonGroups.getGroups();
 
         double sum = 0;
+        double meanArea = 0;
         int n = groups.size();
 
         for (int i = 0; i < n; i++) {
@@ -60,10 +63,18 @@ public class PerimeterAreaRatioProvider extends Statistic.Abstract implements Mo
                     perimeter -= 2 * adjacency.getSharedPerimeter(taxa.get(j), taxa.get(k));
                 }
             }
-            sum += perimeter * perimeter / area;
+            if (weightByArea) {
+                sum += perimeter * perimeter;
+                meanArea += area;
+            } else {
+                sum += perimeter * perimeter / area;
+            }
         }
 
         meanRatio = sum / n;
+        if (weightByArea) {
+            meanRatio /= meanArea;
+        }
     }
 
     @Override
@@ -80,6 +91,7 @@ public class PerimeterAreaRatioProvider extends Statistic.Abstract implements Mo
 
         private static final String AREA = "area";
         private static final String PERIMETER = "perimeter";
+
         @Override
         public Object parseXMLObject(XMLObject xo) throws XMLParseException {
             TaxonGroupsProvider taxonGroups = (TaxonGroupsProvider) xo.getChild(TaxonGroupsProvider.class);
