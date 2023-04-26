@@ -58,11 +58,13 @@ public class TaxonGroupsProvider extends AbstractModel {
     }
 
     public ArrayList<Accumulator> getGroups() {
-        if (needToUpdate) {
-            updateAccumulators();
-            needToUpdate = false;
+        synchronized (this) {
+            if (needToUpdate) {
+                updateAccumulators();
+                needToUpdate = false;
+            }
+            return accumulators;
         }
-        return accumulators;
     }
 
     public ArrayList<Accumulator> getAdjacentGroups(Accumulator group, TaxaAdjacencyMatrix adjacency) {

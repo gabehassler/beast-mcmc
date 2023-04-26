@@ -34,16 +34,15 @@ public class GroupHeterogeneityStatistic extends Statistic.Abstract {
             ArrayList<Integer> taxa = group.descendants;
             int m = taxa.size();
             for (int j = 0; j < p; j++) {
-                double mean = 0;
+                double s = 0;
+                double ss = 0;
                 for (int k = 0; k < m; k++) {
-                    mean += traits.getParameterValue(j, taxa.get(k));
+                    double x = traits.getParameterValue(j, taxa.get(k));
+                    s += x;
+                    ss += x * x;
                 }
-                mean /= m;
-                double sse = 0;
-                for (int k = 0; k < m; k++) {
-                    double diff = traits.getParameterValue(j, taxa.get(k)) - mean;
-                    sse += diff * diff;
-                }
+                double mean = s / m;
+                double sse = ss - mean * mean * m;
                 sum += sse;
             }
         }
