@@ -18,6 +18,7 @@ public class PerimeterAreaRatioProvider extends Statistic.Abstract implements Mo
 
     private boolean needsUpdate = true;
     private final boolean weightByArea = true;
+    private final boolean normalizeByAverate = true;
 
     PerimeterAreaRatioProvider(TaxonGroupsProvider taxonGroups, TaxaAdjacencyMatrix adjacency, Parameter perimeter, Parameter area) {
         this.taxonGroups = taxonGroups;
@@ -73,7 +74,7 @@ public class PerimeterAreaRatioProvider extends Statistic.Abstract implements Mo
 
         meanRatio = sum / n;
         if (weightByArea) {
-            meanRatio /= meanArea;
+            meanRatio /= meanArea / n;
         }
     }
 
