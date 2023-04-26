@@ -12,7 +12,7 @@ public class ContiguityStatistic extends Statistic.Abstract implements ModelList
     private final TaxaAdjacencyMatrix adjacencyMatrix;
     private final TreeModel treeModel;
     private final Parameter threshold;
-    private int nDiscongiguities;
+    private int nDiscontiguities;
     //    private double[] areas;
     //    private double[] perimeters;
     private double[] groupSizes;
@@ -40,14 +40,14 @@ public class ContiguityStatistic extends Statistic.Abstract implements ModelList
 //        this.perimeters = new double[n];
 //        this.areas = new double[n];
         this.groupSizes = new double[n];
-        this.nDiscongiguities = 0;
+        this.nDiscontiguities = 0;
 
         for (int i = 0; i < n; i++) {
             AdjacencyAccumulator accumulator = accumulators.get(i);
             ArrayList<Integer> taxa = accumulator.descendants;
             int ni = taxa.size();
             groupSizes[i] = ni;
-            this.nDiscongiguities += accumulator.nDiscongiguities;
+            this.nDiscontiguities += accumulator.nDiscongiguities;
 //            for (int j = 0; j < ni; j++) {
 //                areas[i] += adjacencyMatrix.getArea(j);
 //                perimeters[i] += adjacencyMatrix.getPerimeter(j);
@@ -110,13 +110,13 @@ public class ContiguityStatistic extends Statistic.Abstract implements ModelList
             update();
             needToUpdate = false;
         }
-        return nDiscongiguities;
+        return nDiscontiguities;
     }
 
     @Override
     public void modelChangedEvent(Model model, Object object, int index) {
         if (model == treeModel) {
-            oldNDiscontiguities = nDiscongiguities;
+            oldNDiscontiguities = nDiscontiguities;
             oldNeedToUpdate = needToUpdate;
             needToUpdate = true;
         } else {
