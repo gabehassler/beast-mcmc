@@ -514,4 +514,15 @@ public class MathUtils {
 
         return max;
     }
+
+	public static double absMax(double[] array) {
+		double max = Double.NEGATIVE_INFINITY;
+		for (double x : array) {
+			if (Math.abs(x) > max) {
+				max = Math.abs(x);
+			}
+		}
+
+		return max;
+	}
 }
