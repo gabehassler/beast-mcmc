@@ -516,13 +516,19 @@ public class MathUtils {
     }
 
 	public static double absMax(double[] array) {
+		return Math.abs(array[findAbsMax(array)]);
+	}
+
+	public static int findAbsMax(double[] array) {
 		double max = Double.NEGATIVE_INFINITY;
-		for (double x : array) {
-			if (Math.abs(x) > max) {
-				max = Math.abs(x);
+		int maxIndex = -1;
+		for (int i = 0; i < array.length; i++) {
+			if (Math.abs(array[i]) > max) {
+				max = Math.abs(array[i]);
+				maxIndex = i;
 			}
 		}
 
-		return max;
+		return maxIndex;
 	}
 }
