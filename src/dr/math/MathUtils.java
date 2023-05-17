@@ -519,10 +519,27 @@ public class MathUtils {
 		return Math.abs(array[findAbsMax(array)]);
 	}
 
+	public static double absMax(double[] array, int[] inds) {
+		return Math.abs(array[findAbsMax(array, inds)]);
+	}
+
 	public static int findAbsMax(double[] array) {
 		double max = Double.NEGATIVE_INFINITY;
 		int maxIndex = -1;
 		for (int i = 0; i < array.length; i++) {
+			if (Math.abs(array[i]) > max) {
+				max = Math.abs(array[i]);
+				maxIndex = i;
+			}
+		}
+
+		return maxIndex;
+	}
+
+	public static int findAbsMax(double[] array, int[] inds) {
+		double max = Double.NEGATIVE_INFINITY;
+		int maxIndex = -1;
+		for (int i : inds) {
 			if (Math.abs(array[i]) > max) {
 				max = Math.abs(array[i]);
 				maxIndex = i;
